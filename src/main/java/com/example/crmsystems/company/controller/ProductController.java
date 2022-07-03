@@ -1,6 +1,5 @@
 package com.example.crmsystems.company.controller;
 
-import com.example.crmsystems.company.model.Employee;
 import com.example.crmsystems.company.model.Product;
 import com.example.crmsystems.company.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -70,5 +69,6 @@ public class ProductController {
         return new ResponseEntity<>(updated, HttpStatus.OK);
 
     }
+
 
 }

@@ -1,4 +1,4 @@
-package com.example.crmsystems.сlient;
+package com.example.crmsystems.сlient.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
