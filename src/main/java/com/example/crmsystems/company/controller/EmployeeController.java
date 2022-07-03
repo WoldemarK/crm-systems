@@ -50,8 +50,8 @@ public class EmployeeController {
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteById(@PathVariable Long id) {
-        service.deleteById(id);
+    public ResponseEntity<String> deleteById(@PathVariable Long employeeId) {
+        service.deleteById(employeeId);
         return new ResponseEntity<>("Employee deleted successfully!.", HttpStatus.OK);
     }
 
@@ -76,4 +76,17 @@ public class EmployeeController {
         return new ResponseEntity<>(updated, HttpStatus.OK);
 
     }
+
+    @PatchMapping("/emp/{employeeId}/{firstName}")
+    public ResponseEntity<Employee> updateEmployeePartially(@PathVariable Long employeeId,
+                                                            @PathVariable String firstName) {
+        try {
+            Employee employee = service.findById(employeeId).get();
+            employee.setFirstName(firstName);
+            return new ResponseEntity<>(service.save(employee), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
