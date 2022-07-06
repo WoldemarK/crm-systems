@@ -1,6 +1,5 @@
 package com.example.crmsystems.сlient.service;
 
-import com.example.crmsystems.company.model.Employee;
 import com.example.crmsystems.сlient.model.Customer;
 import com.example.crmsystems.сlient.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
