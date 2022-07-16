@@ -1,6 +1,5 @@
 package com.example.crmsystems.сlient.controller;
 
-import com.example.crmsystems.company.model.Employee;
 import com.example.crmsystems.сlient.model.Customer;
 import com.example.crmsystems.сlient.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -57,5 +57,13 @@ public class CustomerController {
                 .orElseThrow(() -> new Exception("Customer not found for this id :: " + customerId));
         Customer updated = service.save(cust);
         return new ResponseEntity<>(updated, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/paramsEx")
+    public Map<String, String>
+    printParams(@RequestParam Map<String, String> allQueryParams) {
+        System.out.println(allQueryParams);
+        return allQueryParams;
     }
 }
